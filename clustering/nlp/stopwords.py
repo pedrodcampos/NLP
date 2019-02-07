@@ -1,13 +1,14 @@
 from nltk.corpus.reader import wordnet
 from nltk.corpus import stopwords
-import pandas as pd
+import numpy as np
 from ..helpers import get_resource_path
 
 
 def get_us_names():
     csv_file = get_resource_path('us_names')
-    df_names = pd.read_csv(csv_file, header=None)
-    return df_names[0].tolist()
+    with open(csv_file, 'r') as us_names:
+        us_names = us_names.read()
+        return us_names.split('\n')
 
 
 def get_stopwords(extra=[], exception_words=[]):
