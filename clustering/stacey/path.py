@@ -3,11 +3,11 @@ import os.path
 
 
 def get_app_dir():
-    return os.path.abspath(os.path.dirname(__name__))
+    return os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 
 def get_package_dir():
-    return "/".join([get_app_dir(), __package__])
+    return os.path.abspath(os.path.dirname(__file__))
 
 
 def get_resource_dir():
@@ -23,4 +23,4 @@ def get_output_dir():
 
 
 def get_output_file(filename):
-    return "/".join([get_app_dir(), __OUTPUT_FOLDER__])
+    return "/".join([get_app_dir(), __OUTPUT_FOLDER__, filename])
