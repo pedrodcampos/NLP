@@ -1,11 +1,11 @@
 from nltk.corpus.reader import wordnet
 from nltk.corpus import stopwords
 import numpy as np
-from ..helpers import get_resource_path
+from .path import get_resource_file
 
 
 def get_us_names():
-    csv_file = get_resource_path('us_names')
+    csv_file = get_resource_file('us_names')
     with open(csv_file, 'r') as us_names:
         us_names = us_names.read()
         return us_names.split('\n')
