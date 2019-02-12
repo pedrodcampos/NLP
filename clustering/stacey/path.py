@@ -23,4 +23,4 @@ def get_output_dir():
 
 
 def get_output_file(filename):
-    return "/".join([get_app_dir, __OUTPUT_FOLDER__])
+    return "/".join([get_app_dir(), __OUTPUT_FOLDER__])
