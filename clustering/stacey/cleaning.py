@@ -15,6 +15,7 @@ filters = [
     {"regexp": r"[^.,';\w\s]|([\s][.,])|_", "replace": ""},
     {"regexp": r"[\n\r]", "replace": " "},
     {"regexp": r"\s{2,}", "replace": " "},
+    {"regexp": r"\b(\w+)(?:\s+\1\b)+", "replace": r"\1"},
     {"regexp": r"[,]{2,}", "replace": ", "}
 ]
 
@@ -30,9 +31,9 @@ def is_english(text, ignore_errors=False):
             raise()
 
 
-def filter_english(series):
+def filter_english(series, ignore_errors=False):
     tqdm.tqdm.pandas()
-    return series.progress_apply(lambda text: is_english(text))
+    return series.progress_apply(lambda text: is_english(text, ignore_errors))
 
 
 def clean(text, custom_filters=[]):

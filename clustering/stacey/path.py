@@ -24,3 +24,7 @@ def get_output_dir():
 
 def get_output_file(filename):
     return "/".join([get_app_dir(), __OUTPUT_FOLDER__, filename])
+
+
+def get_data_file(filename):
+    return "/".join([get_app_dir(), __DATA_FODLER__, filename])
